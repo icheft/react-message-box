@@ -9,9 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: npm run build
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+      - name: Setup the code
+        run: npm install
+      - name: Test the code
+        run: npm test
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_REACT_MESSAGE_BOX_A899C }}'
+          channelId: live
           projectId: react-message-box-a899c

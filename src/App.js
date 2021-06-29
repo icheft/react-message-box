@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import 'bulma/css/bulma.min.css';
 import MessageList from './MessageList';

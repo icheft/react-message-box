@@ -1,25 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
+import 'bulma/css/bulma.min.css';
+import MessageList from './MessageList';
+import Header from './Header';
+import firebase from './base';
+import MessageBox from './MessageBox';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // const firebase = 'Hello';
+    return (
+        <div className="App">
+            <Header title="React Message Box" />
+            <div className="container">
+                <div className="columns ">
+                    <div className="column is-3"></div>
+                    <div className="column is-6">
+                        <MessageList db={firebase} />
+                    </div>
+                </div>
+                <div className="columns">
+                    <div className="column is-3"></div>
+                    <div className="column is-6">
+                        <MessageBox db={firebase} />
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default App;
